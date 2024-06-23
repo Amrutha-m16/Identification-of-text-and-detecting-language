@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            background-image: url('https://cdn.pixabay.com/photo/2024/01/26/15/42/book-8534166_1280.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .left-column {
+            width: 45%; /* Adjust the width of the left column as needed */
+            margin-left: 10%;
+            margin-top: 13%;
+            text-align: center;
+            color: white
+        }
+
+        .left-column img {
+            width: 100%; 
+            max-width: 300px; 
+            height: auto; 
+            border: 2px solid white;
+        }
+
+
+        .right-column {
+            width: 45%; /* Adjust the width of the right column as needed */
+            margin-right: 10%;
+            margin-top: 7%;
+            text-align: center;
+            color:white
+        }
+
+        .right-column table {
+            width: 100%;
+        }
+
+        td {
+            padding: 5px; /* Adjust the padding value as needed */
+        }
+
+        th {
+            background-color: rgb(94, 26, 26);
+            color: whitesmoke;
+            padding: 10px; /* Adjust the padding value as needed */
+             border-bottom: 1px solid #ddd;
+        }
+
+        audio {
+            margin-top: 10%; /* Adjusts the margin above the audio element */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="left-column">
+<!--        <h2>Uploaded Image:</h2>-->
+        <img src="{{ url_for('uploaded_image', filename=filename) }}" alt="Uploaded Image">
+    </div>
+    <div class="right-column">
+<!--        <h2>Classification and Transliteration:</h2>-->
+        <table border="0.5">
+            <tr>
+                <th>Extracted Text</th>
+                <th>Detected Language</th>
+                <th>Translated Text</th>
+            </tr>
+            {% for i in range(detected_text | length) %}
+            <tr>
+                <td>{{ detected_text[i] }}</td>
+                <td>{{ detected_languages[i] }}</td>
+                <td>{{ translated_text[i] }}</td> 
+            </tr>
+            
+            {% endfor %}
+            
+        </table>
+        <div style="margin-top: 20px;">
+            <audio controls>
+                <source src="{{ url_for('static', filename=audio_file_path) }}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

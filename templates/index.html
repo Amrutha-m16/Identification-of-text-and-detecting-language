@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://cdn.pixabay.com/photo/2014/09/05/18/32/old-books-436498_1280.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .form-container {
+            display: inline-block;
+            padding: 40px;
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            background-color: rgba(5, 4, 3, 0.13);
+            width: 600px; 
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            background-color: rgb(96, 16, 16);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-left: 150px; 
+        }
+
+        button[type="submit"]:hover {
+            background-color: burlywood;
+        }
+
+        h1,b{
+            color: white;
+            margin-bottom: 70px; 
+            font-size: 36px;
+            font-family: 'cooper black';
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <h1><pre><b>                Language Classification              
+and
+Transliteration in Scene Text</b></pre></h1>
+        <!-- <h2>Upload Image</h2> -->
+        <div class="form-container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*">
+                <button type="submit">Upload</button>
+            </form>
+            
+        </div>
+    </div>
+    
+
+    </script>
+</body>
+</html>

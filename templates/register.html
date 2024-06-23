@@ -1,0 +1,64 @@
+
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='myfont/css/all.min.css')}}">
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+    <style>
+        .shadow{
+            box-shadow:3px 3px 10px black;
+            padding:30px;
+        }
+
+        .page-header {
+            color: whitesmoke; /* Replace #your_color with the desired color code */
+        }
+
+        body {
+            background-image: url('{{url_for("static", filename="open.jpg")}}'); /* Replace 'your_background_image.jpg' with your image file name */
+            background-size: cover; /* Make sure the image covers the entire background */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            /* Optional: Add an overlay with opacity */
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+            color: white; /* Set text color to white to contrast with the background */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px; /* Add padding to create some space around the form content */
+            border-radius: 8px; /* Optionally add rounded corners */
+            box-shadow: 3px 3px 10px black; /* Add a shadow around the form */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top:100px">
+        <div class="col-md-offset-3 col-md-5">
+            <div class="shadow">
+                <form method="POST" action="/register">
+                    <h2 class="page-header text-primary text-center">Registration</h2>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                     <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="Register">
+                         <a href="{{url_for('index')}}" class="btn btn-primary btn-block">Back to Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("form").attr("autocomplete","off");
+    });
+</script>
